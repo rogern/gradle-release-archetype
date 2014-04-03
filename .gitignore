@@ -1,0 +1,5 @@
+# Ignoring hidden files and folder along with project files
+.DS_Store
+.gradle
+.idea
+*.iml

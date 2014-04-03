@@ -1,0 +1,23 @@
+apply plugin: 'java'
+
+repositories {
+  maven {
+    url installRepository  // put your 'installRepository' in the gradle.properties either in user_home or project_root
+  }
+}
+
+buildscript {
+  repositories {
+    maven {
+      url "https://oss.sonatype.org/content/groups/public"
+    }
+  }
+  dependencies {
+    classpath 'com.github.townsfolk:gradle-release:1.2'
+  }
+}
+
+apply plugin: 'release'
+
+dependencies {
+}
