@@ -1,10 +1,5 @@
 apply plugin: 'java'
-
-repositories {
-  maven {
-    url installRepository  // put your 'installRepository' in the gradle.properties either in user_home or project_root
-  }
-}
+apply plugin: 'maven'
 
 buildscript {
   repositories {
@@ -19,5 +14,16 @@ buildscript {
 
 apply plugin: 'release'
 
-dependencies {
+uploadArchives.repositories.mavenDeployer {
+  uniqueVersion = false
+  // credentials and repositories from gradle.properties
+  repository(url: releaseRepository) {
+    authentication(userName: releasesUsername, password: releasesPassword)
+  }
+
+  snapshotRepository(url: snapshotRepository) {
+    authentication(userName: snapshotsUsername, password: snapshotsPassword)
+  }
 }
+
+createReleaseTag.dependsOn uploadArchives
