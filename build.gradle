@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'release'
 
 project.group='org.testgradlerelease'
 
@@ -13,8 +14,6 @@ buildscript {
     classpath 'com.github.townsfolk:gradle-release:1.2'
   }
 }
-
-apply plugin: 'release'
 
 uploadArchives.repositories.mavenDeployer {
   uniqueVersion = false
