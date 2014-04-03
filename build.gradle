@@ -26,6 +26,8 @@ uploadArchives.repositories.mavenDeployer {
   snapshotRepository(url: snapshotRepository) {
     authentication(userName: snapshotsUsername, password: snapshotsPassword)
   }
+
+  pom.artifactId = 'testgradlerelease'
 }
 
 createReleaseTag.dependsOn uploadArchives
